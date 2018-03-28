@@ -1,0 +1,46 @@
+﻿body {
+    padding-top: 50px;
+    padding-bottom: 20px;
+}
+
+/* Set padding to keep content from hitting the edges */
+.body-content {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+/* Override the default bootstrap behavior where horizontal description lists 
+   will truncate terms that are too long to fit in the left column 
+*/
+.dl-horizontal dt {
+    white-space: normal;
+}
+
+/* Set width on the form input elements since they're 100% wide by default */
+input,
+select,
+textarea {
+    max-width: 280px;
+}
+
+
+.selectionRadio {
+    padding: 2px;
+    border-radius: 6.1px;
+    color: black;
+    max-width: 24.5%;
+    background-color: peru;
+}
+
+.radioHeader {
+    padding: 5px;
+}
+
+.NoteHeader {
+    max-width: 45%;
+    background-color: yellow;
+}
+
+.eachRow {
+    padding: 0px 0px 30px;
+}
