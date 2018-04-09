@@ -6,7 +6,6 @@
     <edmx:Diagrams>
       <Diagram DiagramId="454a99bdc8894b50938a81ebdef18b33" Name="Diagram1">
         <EntityTypeShape EntityType="VALENCEDBModelTest.ContactDetail" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="VALENCEDBModelTest.ContactInformation" Width="1.5" PointX="2.75" PointY="0.75" IsExpanded="true" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

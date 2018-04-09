@@ -1,0 +1,5 @@
+F:\ValenceAssignment\ValenceDemo\HandleLog\bin\Debug\HandleLog.dll
+F:\ValenceAssignment\ValenceDemo\HandleLog\bin\Debug\HandleLog.pdb
+F:\ValenceAssignment\ValenceDemo\HandleLog\obj\Debug\HandleLog.dll
+F:\ValenceAssignment\ValenceDemo\HandleLog\obj\Debug\HandleLog.pdb
+F:\ValenceAssignment\ValenceDemo\HandleLog\obj\Debug\HandleLog.csprojResolveAssemblyReference.cache

@@ -26,6 +26,5 @@ namespace ValenceDemo.Models
         }
     
         public virtual DbSet<ContactDetail> ContactDetails { get; set; }
-        public virtual DbSet<ContactInformation> ContactInformations { get; set; }
     }
 }

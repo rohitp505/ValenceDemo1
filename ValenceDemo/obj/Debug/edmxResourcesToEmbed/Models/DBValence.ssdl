@@ -11,20 +11,7 @@
     <Property Name="Status" Type="bit" Nullable="false" />
     <Property Name="CreateDate" Type="datetime" Nullable="false" />
   </EntityType>
-  <EntityType Name="ContactInformations">
-    <Key>
-      <PropertyRef Name="Valence_ID" />
-    </Key>
-    <Property Name="Valence_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="First_Name" Type="nvarchar" MaxLength="50" Nullable="false" />
-    <Property Name="Last_Name" Type="nvarchar" MaxLength="50" Nullable="false" />
-    <Property Name="Email" Type="nvarchar" MaxLength="50" Nullable="false" />
-    <Property Name="Phone_No" Type="numeric" Precision="18" Scale="0" Nullable="false" />
-    <Property Name="Status" Type="bit" Nullable="false" />
-    <Property Name="CreateDate" Type="datetime" Nullable="false" />
-  </EntityType>
   <EntityContainer Name="VALENCEDBModelTestStoreContainer">
     <EntitySet Name="ContactDetails" EntityType="Self.ContactDetails" Schema="dbo" store:Type="Tables" />
-    <EntitySet Name="ContactInformations" EntityType="Self.ContactInformations" Schema="dbo" store:Type="Tables" />
   </EntityContainer>
 </Schema>

@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="VALENCEDBModelTest.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="VALENCEDBModelTest.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="ContactDetails">
           <Key>
             <PropertyRef Name="Email" />
@@ -16,24 +16,10 @@
           <Property Name="Status" Type="bit" Nullable="false" />
           <Property Name="CreateDate" Type="datetime" Nullable="false" />
         </EntityType>
-        <EntityType Name="ContactInformations">
-          <Key>
-            <PropertyRef Name="Valence_ID" />
-          </Key>
-          <Property Name="Valence_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="First_Name" Type="nvarchar" MaxLength="50" Nullable="false" />
-          <Property Name="Last_Name" Type="nvarchar" MaxLength="50" Nullable="false" />
-          <Property Name="Email" Type="nvarchar" MaxLength="50" Nullable="false" />
-          <Property Name="Phone_No" Type="numeric" Precision="18" Scale="0" Nullable="false" />
-          <Property Name="Status" Type="bit" Nullable="false" />
-          <Property Name="CreateDate" Type="datetime" Nullable="false" />
-        </EntityType>
         <EntityContainer Name="VALENCEDBModelTestStoreContainer">
           <EntitySet Name="ContactDetails" EntityType="Self.ContactDetails" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="ContactInformations" EntityType="Self.ContactInformations" Schema="dbo" store:Type="Tables" />
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="VALENCEDBModelTest" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -48,21 +34,8 @@
           <Property Name="Status" Type="Boolean" Nullable="false" />
           <Property Name="CreateDate" Type="DateTime" Nullable="false" Precision="3" />
         </EntityType>
-        <EntityType Name="ContactInformation">
-          <Key>
-            <PropertyRef Name="Valence_ID" />
-          </Key>
-          <Property Name="Valence_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="First_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="Last_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="Phone_No" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
-          <Property Name="Status" Type="Boolean" Nullable="false" />
-          <Property Name="CreateDate" Type="DateTime" Nullable="false" Precision="3" />
-        </EntityType>
         <EntityContainer Name="VALENCEDBEntitiesTest" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="ContactDetails" EntityType="Self.ContactDetail" />
-          <EntitySet Name="ContactInformations" EntityType="Self.ContactInformation" />
         </EntityContainer>
       </Schema>
     </edmx:ConceptualModels>
@@ -76,19 +49,6 @@
                 <ScalarProperty Name="Email" ColumnName="Email" />
                 <ScalarProperty Name="First_Name" ColumnName="First_Name" />
                 <ScalarProperty Name="Last_Name" ColumnName="Last_Name" />
-                <ScalarProperty Name="Phone_No" ColumnName="Phone_No" />
-                <ScalarProperty Name="Status" ColumnName="Status" />
-                <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="ContactInformations">
-            <EntityTypeMapping TypeName="VALENCEDBModelTest.ContactInformation">
-              <MappingFragment StoreEntitySet="ContactInformations">
-                <ScalarProperty Name="Valence_ID" ColumnName="Valence_ID" />
-                <ScalarProperty Name="First_Name" ColumnName="First_Name" />
-                <ScalarProperty Name="Last_Name" ColumnName="Last_Name" />
-                <ScalarProperty Name="Email" ColumnName="Email" />
                 <ScalarProperty Name="Phone_No" ColumnName="Phone_No" />
                 <ScalarProperty Name="Status" ColumnName="Status" />
                 <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />

@@ -1,0 +1,58 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="~/Content/Login.css" rel="stylesheet" />
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/Content/bootstrap.css" rel="stylesheet" />
+    <title>@ViewBag.Title - My ASP.NET Application</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+
+</head>
+<body>
+    @*<section class="slideshow-images js-slideshow-images">
+            <nav>
+                <button class="slideshow-nav slideshow-nav--prev js-slideshow-previous"></button>
+                <button class="slideshow-nav slideshow-nav--next js-slideshow-next"></button>
+            </nav>
+            <div class="slideshow-container js-slideshow-container">
+                <div class="slideshow-slide js-slideshow-slide">
+                    <img class="slideshow-slide--image" src="~/Content/Images/evolent-valence-7x4.jpg" />
+                </div>
+                <div class="slideshow-slide js-slideshow-slide">
+                    <img class="slideshow-slide--image" src="~/Content/Images/logo.jpg" />
+                </div>
+                <div class="slideshow-slide js-slideshow-slide">
+                    <img class="slideshow-slide--image" src="~/Content/Images/ValenceLogo.jpg" />
+                </div>
+            </div>
+            <aside>
+                <div class="slideshow-counter js-slideshow-counter"></div>
+            </aside>
+        </section>*@
+    <div class="container body-content">
+        @RenderBody()
+
+        <hr />
+        <footer class="footercss">
+
+            <div><a href="#"><img class="logo" src="~/Content/Images/evolent-valence-7x4.jpg" alt="About" /></a></div>
+            <p>&copy; @DateTime.Now.Year -ValenceCare<b>(Care your heart and share our love)</b></p>
+        </footer>
+    </div>
+</body>
+</html>
+    @Scripts.Render("~/bundles/jquery")
+   @* @Scripts.Render("~/bundles/bootstrap")
+        @RenderSection("scripts", required: false)
+
+    </html>
+    <script>
+        $(document).ready(function () {
+            var slideshowImages = Slideshow();
+            slideshowImages.init('.js-slideshow-images', true);
+        }
+        )
+    </script>*@

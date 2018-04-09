@@ -11,20 +11,7 @@
     <Property Name="Status" Type="Boolean" Nullable="false" />
     <Property Name="CreateDate" Type="DateTime" Nullable="false" Precision="3" />
   </EntityType>
-  <EntityType Name="ContactInformation">
-    <Key>
-      <PropertyRef Name="Valence_ID" />
-    </Key>
-    <Property Name="Valence_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="First_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-    <Property Name="Last_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-    <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-    <Property Name="Phone_No" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
-    <Property Name="Status" Type="Boolean" Nullable="false" />
-    <Property Name="CreateDate" Type="DateTime" Nullable="false" Precision="3" />
-  </EntityType>
   <EntityContainer Name="VALENCEDBEntitiesTest" annotation:LazyLoadingEnabled="true">
     <EntitySet Name="ContactDetails" EntityType="Self.ContactDetail" />
-    <EntitySet Name="ContactInformations" EntityType="Self.ContactInformation" />
   </EntityContainer>
 </Schema>

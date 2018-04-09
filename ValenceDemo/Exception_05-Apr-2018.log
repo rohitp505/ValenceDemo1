@@ -1,0 +1,23 @@
+--------------------------------------------------
+4/5/2018 8:59:09 PM
+Schema specified is not valid. Errors: 
+The relationship 'VALENCEDBModelTest.FK_DepartmentDetails_ContactDetails' was not loaded because the type 'VALENCEDBModelTest.ContactDetail' is not available.
+The following information may be useful in resolving the previous error:
+The required property 'DepartmentDetails' does not exist on the type 'ValenceDemo.Models.ContactDetail'.
+
+
+--------------------------------------------------
+4/5/2018 9:41:16 PM
+Attempted to divide by zero.
+--------------------------------------------------
+4/5/2018 9:42:53 PM
+Attempted to divide by zero.
+--------------------------------------------------
+4/5/2018 9:45:55 PM
+Attempted to divide by zero.
+--------------------------------------------------
+4/5/2018 9:47:41 PM
+Attempted to divide by zero.
+--------------------------------------------------
+4/5/2018 10:00:18 PM
+Attempted to divide by zero.

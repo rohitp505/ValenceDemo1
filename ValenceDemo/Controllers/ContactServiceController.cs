@@ -10,36 +10,63 @@ using System.Threading.Tasks;
 using System.Web.Http;
 using System.Web.Http.Description;
 using ValenceDemo.Models;
+using ValenceDemo.DAL;
+using HandleLog;
+using System.Web.Http.ExceptionHandling;
+using System.Web.Http.Filters;
+using ValenceDemo.Filters;
 
 namespace ValenceDemo.Controllers
 {
+    /// <summary>
+    /// Attribute base routing,Singleton pattern ,Repository used for crud operation,
+    /// Exception filter with different dll(HandleLog),Filter,Async and await call,
+    /// </summary>
+    [RoutePrefix("api/ContactService")]
     public class ContactServiceController : ApiController
     {
-        private VALENCEDBEntitiesTest db = new VALENCEDBEntitiesTest();
+        private ILogException _ILogException;
 
-        // GET: api/ContactService
-        public IQueryable<ContactDetail> GetContactDetails()
+        private ContactRepository _contactrepository;
+
+        public ContactServiceController()
         {
-            return db.ContactDetails;
+           
+            this._contactrepository = new ContactRepository(new VALENCEDBEntitiesTest());
+            this._ILogException = logGenerator.CreateInstance;
         }
 
-        // GET: api/ContactService/5
+        [Route("AllContacts")]
+        //logging and exception handeling
+        [LogExceptionFilter]
+        public async Task<IHttpActionResult> GetContactDetails()
+        {
+            var d = 0;
+            d = 5 / d;
+            IEnumerable<ContactDetail> contactdetail = await _contactrepository.GetDetails();
+
+            return Ok(contactdetail);
+        }
+
+        [Route("Contact/{id}")]
         [ResponseType(typeof(ContactDetail))]
         public async Task<IHttpActionResult> GetContactDetail(string id)
         {
-            ContactDetail contactDetail = await db.ContactDetails.FindAsync(id);
+            ContactDetail contactDetail = await _contactrepository.GetContactDetailsById(id);
             if (contactDetail == null)
             {
                 return NotFound();
             }
 
+
             return Ok(contactDetail);
         }
 
-        // PUT: api/ContactService/5
+        [Route("UpdateContact")]
         [HttpPut]
         [ResponseType(typeof(void))]
-        public async Task<IHttpActionResult> PutContactDetail( ContactDetail contactDetail)
+        [LogExceptionFilter]
+        public IHttpActionResult PutContactDetail(ContactDetail contactDetail)
         {
             string id = contactDetail.Email;
             contactDetail.CreateDate = DateTime.Now;
@@ -53,11 +80,11 @@ namespace ValenceDemo.Controllers
                 return BadRequest();
             }
 
-            db.Entry(contactDetail).State = EntityState.Modified;
+            _contactrepository.UpdateContact(contactDetail);
 
             try
             {
-                await db.SaveChangesAsync();
+                _contactrepository.Save();
             }
             catch (DbUpdateConcurrencyException)
             {
@@ -74,22 +101,22 @@ namespace ValenceDemo.Controllers
             return StatusCode(HttpStatusCode.NoContent);
         }
 
-        // POST: api/ContactService
+        [Route("CreateContact")]
         [ResponseType(typeof(ContactDetail))]
-        public async Task<IHttpActionResult> PostContactDetail(ContactDetail contactDetail)
+        [LogExceptionFilter]
+        public IHttpActionResult PostContactDetail(ContactDetail contactDetail)
         {
             contactDetail.CreateDate = DateTime.Now;
-          //contactDetail.Status=0;
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
 
-            db.ContactDetails.Add(contactDetail);
+            _contactrepository.InsertContact(contactDetail);
 
             try
             {
-                await db.SaveChangesAsync();
+                _contactrepository.Save();
             }
             catch (DbUpdateException)
             {
@@ -106,43 +133,54 @@ namespace ValenceDemo.Controllers
             return CreatedAtRoute("DefaultApi", new { id = contactDetail.Email }, contactDetail);
         }
 
-        // DELETE: api/ContactService/5
+        [Route("DeleteContact/{id}")]
         [ResponseType(typeof(ContactDetail))]
+        [LogExceptionFilter]
         public async Task<IHttpActionResult> DeleteContactDetail(string id)
         {
-            ContactDetail contactDetail = await db.ContactDetails.FindAsync(id);
-            contactDetail.Status = false;
-            if (contactDetail == null)
+            // ContactDetail contactdetail = _contactrepository.ContactDetails.Where(x => x.Email.Equals(id) && x.Status == true).FirstOrDefault();
+            ContactDetail contactdetail = await _contactrepository.GetContactDetailsById(id);
+            contactdetail.Status = true;
+
+
+
+            if (contactdetail == null)
             {
                 return NotFound();
             }
 
-            db.Entry(contactDetail).State = EntityState.Modified;
+            _contactrepository.UpdateContact(contactdetail);
 
             try
             {
-                await db.SaveChangesAsync();
+                _contactrepository.Save();
             }
             catch
             {
 
             }
 
-            return Ok(contactDetail);
+            return Ok(contactdetail);
         }
+
 
         protected override void Dispose(bool disposing)
         {
             if (disposing)
             {
-                db.Dispose();
+                _contactrepository.Dispose();
             }
             base.Dispose(disposing);
         }
 
+        [LogExceptionFilter]
         private bool ContactDetailExists(string id)
         {
-            return db.ContactDetails.Count(e => e.Email == id) > 0;
+            return _contactrepository.Isexist(id);
         }
+
+
+
+
     }
 }

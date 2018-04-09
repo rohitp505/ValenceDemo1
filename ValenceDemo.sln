@@ -5,6 +5,10 @@ VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ValenceDemo", "ValenceDemo\ValenceDemo.csproj", "{DD5752D4-ADD2-4119-AA16-DD5A8E816D62}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HandleLog", "HandleLog\HandleLog.csproj", "{6EB44F82-544F-4583-8FED-26A2BA5ED732}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ValenceDemoTest", "ValenceDemoTest\ValenceDemoTest.csproj", "{BC92F227-27B9-488A-8155-3BC5AF6960B3}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +19,14 @@ Global
 		{DD5752D4-ADD2-4119-AA16-DD5A8E816D62}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DD5752D4-ADD2-4119-AA16-DD5A8E816D62}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{DD5752D4-ADD2-4119-AA16-DD5A8E816D62}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6EB44F82-544F-4583-8FED-26A2BA5ED732}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6EB44F82-544F-4583-8FED-26A2BA5ED732}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6EB44F82-544F-4583-8FED-26A2BA5ED732}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6EB44F82-544F-4583-8FED-26A2BA5ED732}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BC92F227-27B9-488A-8155-3BC5AF6960B3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BC92F227-27B9-488A-8155-3BC5AF6960B3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BC92F227-27B9-488A-8155-3BC5AF6960B3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BC92F227-27B9-488A-8155-3BC5AF6960B3}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
